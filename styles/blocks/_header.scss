@@ -1,0 +1,47 @@
+.header {
+    background-color: var(--color-white);
+
+    &__logo {
+        margin-right: auto;
+    }
+
+    .container {
+        align-items: center;
+        justify-content: end;
+    }
+
+    .nav {
+        &__list {
+            display: flex;
+            gap: min(2.78vw, 40px);
+        }
+
+        padding-block: 23px;
+        margin-right: min(2.78vw, 40px);
+    }
+    .phone {
+        color: var(--color-accent);
+        font-family: var(--font-family-medium);
+        transition: transform 0.2s ease;
+        svg {
+            margin-right: 0.25em;
+        }
+        &:hover {
+            transform: scale(1.1);
+            svg {
+                animation: phone 0.2s ease infinite;
+            }
+        }
+    }
+}
+@keyframes phone {
+    0% {
+        transform: rotate(-20deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(-20deg);
+    }
+}

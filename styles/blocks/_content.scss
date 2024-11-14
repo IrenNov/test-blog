@@ -1,0 +1,101 @@
+.content {
+    &__container {
+        margin-top: var(--content-gap);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--content-gap);
+
+
+        .content__articles {
+            grid-column: 3 span;
+
+            .article-main {
+                height: 280px;
+            }
+
+            .article-other {
+                margin-top: var(--content-gap);
+
+                &__list {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(8, 180px);
+                    gap: var(--content-gap);
+                }
+
+
+                &__item:nth-child(5n+1) {
+                    grid-column: 2 span;
+                    grid-row: 2 span;
+                }
+
+                &__item:nth-child(5n+2),
+                &__item:nth-child(5n+3) {
+                    grid-row: 2 span;
+                    display: flex;
+                    flex-direction: column;
+                    color: var(--color-white);
+                    background-color: var(--color-accent);
+                    transition: background-color 0.5s ease;
+
+                    .title {
+                        -webkit-line-clamp: 4;
+                    }
+
+                    .date {
+                        position: relative;
+                        margin-top: auto;
+                        padding: 0;
+                        color: var(--color-white);
+
+                    }
+
+                    .text {
+                        display: none;
+                    }
+
+                    .category {
+                        color: var(--color-white);
+                        background-color: rgba(255, 255, 255, 0.2);
+                    }
+                }
+
+
+                &__item:nth-child(5n+2):hover,
+                &__item:nth-child(5n+3):hover {
+                    color: var(--color-text-dark);
+                    background-color: var(--color-white);
+
+                    .date {
+                        color: var(--color-text-rgba);
+                    }
+
+                    .category {
+                        color: var(--color-accent);
+                        background-color: rgba(var(--color-accent-rgb), 0.05);
+
+                        &:hover {
+                            background-color: rgba(var(--color-accent-rgb), 0.15);
+                        }
+                    }
+
+                }
+                &__item:nth-child(5n+3):hover {
+                    background-color: rgba(255, 255, 255, 0.9);
+                    background-blend-mode: lighten;
+                }
+
+
+                &__item:nth-child(5n+4),
+                &__item:nth-child(5n+5) {
+                    grid-column: 2 span;
+
+                    .text {
+                        display: none;
+                    }
+                }
+
+            }
+        }
+    }
+}
