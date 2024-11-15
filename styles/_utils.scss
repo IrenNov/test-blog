@@ -22,15 +22,14 @@
  }
 
  .nav {
-   .link-current {
-     color: var(--color-accent);
-     text-decoration: underline;
-   }
-
    &__item:hover {
      color: var(--color-accent);
    }
  }
+ .current {
+     color: var(--color-accent);
+     text-decoration: underline;
+   }
 
  .category {
    max-width: fit-content;
@@ -43,6 +42,7 @@
    &:hover {
      background-color: rgba(var(--color-accent-rgb), 0.15);
    }
+  
  }
 
  .date {
