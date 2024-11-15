@@ -55,7 +55,7 @@
    padding: var(--content-gap);
    background-color: var(--color-white);
    border-radius: var(--border-radius);
-
+  overflow-y: hidden;
    .date {
      position: absolute;
      top: 0;

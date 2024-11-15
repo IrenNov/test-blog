@@ -6,31 +6,37 @@
         gap: var(--content-gap);
 
 
-        .content__articles {
+        .articles {
             grid-column: 3 span;
 
-            .article-main {
-                height: 280px;
-            }
+            margin-top: var(--content-gap);
 
-            .article-other {
-                margin-top: var(--content-gap);
+            &__list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 280px repeat(8, 180px);
+                gap: var(--content-gap);
+                grid-auto-rows: 180px;
 
-                &__list {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    grid-template-rows: repeat(8, 180px);
-                    gap: var(--content-gap);
+
+                .article-main {
+                    grid-column: 3 span;
+                    .text {
+                        padding-right: 60px;
+                      -webkit-line-clamp: 4;  
+                    }
+                    
                 }
 
 
-                &__item:nth-child(5n+1) {
+                .article-double {
+
                     grid-column: 2 span;
                     grid-row: 2 span;
                 }
 
-                &__item:nth-child(5n+2),
-                &__item:nth-child(5n+3) {
+                .article-accent {
+
                     grid-row: 2 span;
                     display: flex;
                     flex-direction: column;
@@ -61,8 +67,7 @@
                 }
 
 
-                &__item:nth-child(5n+2):hover,
-                &__item:nth-child(5n+3):hover {
+                .article-accent:hover {
                     color: var(--color-text-dark);
                     background-color: var(--color-white);
 
@@ -79,15 +84,17 @@
                         }
                     }
 
+
                 }
-                &__item:nth-child(5n+3):hover {
+
+                .img:hover {
                     background-color: rgba(255, 255, 255, 0.9);
                     background-blend-mode: lighten;
                 }
 
 
-                &__item:nth-child(5n+4),
-                &__item:nth-child(5n+5) {
+                .article-standart {
+
                     grid-column: 2 span;
 
                     .text {

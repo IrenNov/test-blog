@@ -1,7 +1,7 @@
-const sliderList1 = document.querySelector('.article-other__list');
-const slides1 = document.querySelectorAll('.article-other__item');
+const sliderList1 = document.querySelector('.articles__list');
+const slides1 = document.querySelectorAll('.article-container');
 const paginationContainer = document.getElementById('pagination'); // Контейнер для номеров страниц
-const articlesPerPage = 10; // Количество статей на странице
+const articlesPerPage = 11; // Количество статей на странице
 const totalSlides1 = slides1.length;
 const totalPages = Math.ceil(totalSlides1 / articlesPerPage);
 let currentPage = 1;
