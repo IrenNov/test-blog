@@ -403,10 +403,6 @@ hr {
   }
 }
 
-:root {
-  width: 100vw;
-}
-
 body {
   font-size: 18px;
   font-family: var(--font-family-book);
@@ -1066,6 +1062,9 @@ p, .date {
   gap: min(5.56vw, 80px);
   margin-top: 36px;
   margin-bottom: 64px;
+}
+.footer .nav__item:hover {
+  color: var(--color-accent);
 }
 .footer small {
   text-align: center;

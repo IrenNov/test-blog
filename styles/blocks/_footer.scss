@@ -12,12 +12,18 @@
         padding-block: 36px;
         
     }
-    .nav__list {
+    .nav {
+      &__list {
             display: flex;
             gap: min(5.56vw, 80px);
             margin-top: 36px;
             margin-bottom: 64px;
         }
+        &__item:hover {
+            color: var(--color-accent);
+        }  
+    }
+        
     small {
         text-align: center;
         font-size: small;
