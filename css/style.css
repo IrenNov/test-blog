@@ -868,6 +868,7 @@ p, .date {
 }
 .content__container .articles__list .article-accent:hover .category:hover {
   background-color: rgba(var(--color-accent-rgb), 0.15);
+  transition: background-color 0.5s ease, background-blend-mode 1.5s ease;
 }
 .content__container .articles__list .article-accent:hover .text {
   color: var(--color-text-dark);
@@ -880,6 +881,7 @@ p, .date {
 .content__container .articles__list .img:hover {
   background-color: rgba(255, 255, 255, 0.9);
   background-blend-mode: lighten;
+  transition: background-color 0.5s ease, background-blend-mode 1.5s ease;
 }
 .content__container .articles__list .article-standart {
   padding-top: 34px;
