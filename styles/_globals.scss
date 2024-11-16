@@ -1,3 +1,6 @@
+:root {
+  width: 100vw;
+}
 body {
   font-size: 18px;
   font-family: var(--font-family-book);
@@ -6,6 +9,12 @@ body {
   color: var(--color-text-dark);
   background-color: var(--color-bg);
   transition: color var(--transition-duration) ease, background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+  @include tablet {
+    @include fluid-text(18, 16);
+  }
+  @include mobile-s {
+    font-size: 18px;
+  }
 }
 
 a,
@@ -38,17 +47,36 @@ a {
   cursor: pointer;
 }
 
-
+hr {
+  margin: 0;
+  @include tablet{
+    display: none;
+  }
+  @include mobile {
+    display: block;
+  }
+}
 
 h1,
 .h1 {
   font-size: 36px;
+  @include tablet {
+    @include fluid-text(36, 32);
+  }
+  @include mobile-s {
+    font-size: 36px;
+  }
 }
 
 h2,
 .h2 {
   font-size: 28px;
-
+  @include tablet {
+    @include fluid-text(28, 24);
+  }
+  @include mobile-s {
+    font-size: 28px;
+  }
 }
 
 h3,
@@ -57,12 +85,24 @@ h3,
   font-family: var(--font-family-medium);
   font-weight: 500;
   margin-block: 0;
+  @include tablet {
+    @include fluid-text(24, 20);
+  }
+  @include mobile-s {
+    font-size: 24px;
+  }
 }
 h4,
 .h4 {
   font-size: 18px;
   font-family: var(--font-family-book);
   font-weight: 400;
+  @include tablet {
+    @include fluid-text(18, 16);
+  }
+  @include mobile-s {
+    font-size: 18px;
+  }
 }
 
 

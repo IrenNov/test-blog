@@ -1,16 +1,27 @@
  .container {
    margin-inline: auto;
-   width: calc(var(--container-width) + var(--container-padding-x) * 2);
+   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
    padding-inline: var(--container-padding-x);
    display: flex;
+   position: relative;
+
+   @include desktop {
+     margin-inline: 0;
+     width: 100%;
+   }
+
+   @include mobile-s {
+     height: 100%;
+     padding-inline: 0;
+   }
  }
 
  .visually-hidden {
    @include visually-hidden;
  }
 
- .hidden-mobile {
-   @include mobile {
+ .hidden-mobile-s {
+   @include mobile-s {
      display: none !important;
    }
  }
@@ -21,15 +32,16 @@
    }
  }
 
- .nav {
-   &__item:hover {
-     color: var(--color-accent);
+ .visible-mobile-s {
+   @include mobile-s-above {
+     display: none !important;
    }
  }
+
  .current {
-     color: var(--color-accent);
-     text-decoration: underline;
-   }
+   color: var(--color-accent);
+   text-decoration: underline;
+ }
 
  .category {
    max-width: fit-content;
@@ -42,7 +54,7 @@
    &:hover {
      background-color: rgba(var(--color-accent-rgb), 0.15);
    }
-  
+
  }
 
  .date {
@@ -52,10 +64,11 @@
  .article-container,
  .subscribe-container {
    position: relative;
-   padding: var(--content-gap);
+   padding: var(--container-padding);
    background-color: var(--color-white);
    border-radius: var(--border-radius);
-  overflow-y: hidden;
+   overflow-y: hidden;
+
    .date {
      position: absolute;
      top: 0;
@@ -68,15 +81,31 @@
    }
  }
 
- .article-container:focus {
-   outline: var(--border-focus);
+ .article-container {
+   &:focus {
+     outline: var(--border-focus);
+   }
+   @include mobile-s {
+    margin-inline: 20px;
+   }
  }
+
 
  .subscribe-container {
    padding: 40px 30px 50px;
+
+   @include tablet {
+     padding-inline: 14.45vw;
+   }
+
+   @include mobile {
+     padding-inline: 20px;
+   }
+
  }
 
  .title {
+
    margin-top: 30px;
    display: -webkit-box;
    -webkit-line-clamp: 2;
@@ -85,6 +114,7 @@
  }
 
  .text {
+
    margin-top: 20px;
    display: -webkit-box;
    -webkit-line-clamp: 6;
@@ -99,18 +129,44 @@
 
  .form-input {
    background-color: var(--color-form-input);
-   padding: 13px 32px 13px 30px;
+   padding-block: 13px;
+   padding-inline: min(1.28vw, 30px);
    border-radius: var(--border-radius);
    width: 100%;
+
+   @include desktop-above {
+     padding-inline: 30px;
+   }
+   @include mobile-s {
+    width: 280px;
+   }
  }
 
  .form-btn {
    width: 100%;
-   padding: 13px 68px;
+   padding-block: 13px;
+   padding-inline: min(2.98vw, 68px);
    background-color: var(--color-accent);
    border-radius: var(--border-radius);
    display: flex;
    align-items: center;
-   gap: 10px;
+   justify-content: center;
+   gap: min(0.69vw, 10px);
    color: var(--color-white);
+
+   @include tablet {
+     gap: 10px;
+   }
+   @include mobile-s {
+    width: 280px;
+   }
  }
+
+ .logo {
+   @include mobile-s {
+     width: 30px;
+     height: 30px;
+   }
+ }
+ 
+ 

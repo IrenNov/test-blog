@@ -2,8 +2,18 @@
     &__container {
         margin-top: var(--content-gap);
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: var(--content-gap);
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            gap: 96px;
+            margin-top: 40px;
+        }
+        @include mobile-s {
+            gap: 60px;
+        }
 
 
         .articles {
@@ -16,6 +26,13 @@
                 gap: var(--content-gap);
                 grid-auto-rows: 180px;
 
+                @include tablet {
+                    grid-template-rows: repeat(5, auto);
+                    grid-auto-rows: minmax(180px, 280px);
+                    row-gap: 40px;
+                    column-gap: 20px;
+                }
+
 
                 .article-main {
                     grid-column: 3 span;
@@ -25,6 +42,18 @@
                         -webkit-line-clamp: 4;
                     }
 
+                    .title {
+                        padding-top: 10px;
+                    }
+
+                    @include tablet {
+                        height: 280px;
+                    }
+
+                    @include mobile {
+                        height: 350px;
+
+                    }
                 }
 
 
@@ -32,11 +61,30 @@
 
                     grid-column: 2 span;
                     grid-row: 2 span;
+
+                    .title {
+                        padding-top: 10px;
+                    }
+
+                    @include tablet {
+                        height: 400px;
+                    }
+
+                    @include mobile {
+                        height: 350px;
+
+                        .text {
+                            -webkit-line-clamp: 4;
+                        }
+                    }
                 }
 
                 .article-accent {
 
                     grid-row: 2 span;
+                    // padding-left: min(2.43vw, 35px);
+
+                    // @include desktop {}
 
                     .articles__item {
                         display: flex;
@@ -69,7 +117,20 @@
                         background-color: rgba(255, 255, 255, 0.2);
                     }
 
+                    @include tablet {
+                        height: 400px;
+                    }
 
+                    @include mobile {
+                        height: 350px;
+
+                        .text {
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4;
+                            color: var(--color-white);
+                           
+                        }
+                    }
                 }
 
 
@@ -89,25 +150,55 @@
                             background-color: rgba(var(--color-accent-rgb), 0.15);
                         }
                     }
-
-
+                    .text {
+                        color: var(--color-text-dark);
+                    }
                 }
 
-                .img:hover {
-                    background-color: rgba(255, 255, 255, 0.9);
-                    background-blend-mode: lighten;
+                .img {
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.9);
+                        background-blend-mode: lighten;
+                    }
                 }
+
 
 
                 .article-standart {
-
+                    padding-top: 34px;
                     grid-column: 2 span;
 
                     .text {
                         display: none;
                     }
+
+                    .date {
+                        padding: 34px;
+                    }
+
+                    @include tablet {
+                        height: 180px;
+                    }
+
+                    @include mobile {
+                        height: 350px;
+
+                        .text {
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4;
+                        }
+                    }
                 }
 
+                @include mobile {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1 1 350px;
+                }
             }
         }
     }

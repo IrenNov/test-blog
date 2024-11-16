@@ -5,8 +5,13 @@
     img {
         height: 15.63vw;
         width: 100%;
-
         object-fit: cover;
+        @include tablet {
+            height: max(24.41vw, 200px);
+        }
+        @include mobile {
+            height: min(46.88vw, 200px);
+        }
     }
 
     &::after {

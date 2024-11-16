@@ -1,23 +1,37 @@
 const sliderList1 = document.querySelector('.articles__list');
 const slides1 = document.querySelectorAll('.article-container');
-const paginationContainer = document.getElementById('pagination'); 
-const articlesPerPage = 11; 
-const totalSlides1 = slides1.length;
-const totalPages = Math.ceil(totalSlides1 / articlesPerPage);
+const paginationContainer = document.getElementById('pagination');
+const showMoreButton = document.querySelector('.show-more-btn');
+const buttonText = showMoreButton.querySelector('.button-text');
 let currentPage = 1;
-let showAllPages = false; 
+let showAllPages = false;
+
+
+function getArticlesPerPage() {
+  return parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--articles-per-page')
+  );
+}
+
+let articlesPerPage = getArticlesPerPage();
+let totalSlides1 = slides1.length;
+let totalPages = Math.ceil(totalSlides1 / articlesPerPage);
+
+function updateTotalPages() {
+  articlesPerPage = getArticlesPerPage();
+  totalPages = Math.ceil(totalSlides1 / articlesPerPage);
+}
 
 function updateSliderPosition1() {
+  updateTotalPages();
   const startSlide = (currentPage - 1) * articlesPerPage;
   const endSlide = startSlide + articlesPerPage;
 
- 
-  slides1.forEach(slide => (slide.style.display = 'none'));
+  slides1.forEach(slide => (slide.style.display = 'none')); 
 
-  
   slides1.forEach((slide, index) => {
     if (index >= startSlide && index < endSlide) {
-      slide.style.display = 'block';
+      slide.style.display = 'block'; 
     }
   });
 
@@ -25,6 +39,13 @@ function updateSliderPosition1() {
 }
 
 function updatePagination() {
+  if (window.innerWidth < 768) {
+    paginationContainer.style.display = 'none'; // Скрываем пагинацию
+    showMoreButton.style.display = 'block'; // Показываем кнопку
+  } else {
+    paginationContainer.style.display = ''; // Показываем пагинацию
+    showMoreButton.style.display = 'none'; // Скрываем кнопку
+  }
   paginationContainer.innerHTML = ''; 
 
   const createPageButton = (pageNumber) => {
@@ -44,7 +65,6 @@ function updatePagination() {
   };
 
   if (!showAllPages) {
-    
     for (let i = 1; i <= 4 && i <= totalPages; i++) {
       createPageButton(i);
     }
@@ -63,16 +83,17 @@ function updatePagination() {
 
       paginationContainer.appendChild(dots);
 
-     
+      
       createPageButton(totalPages);
     }
   } else {
-   
+    
     for (let i = 1; i <= totalPages; i++) {
       createPageButton(i);
     }
   }
 
+  
   if (currentPage > 1) {
     const prevButton = document.createElement('button');
     prevButton.textContent = '< Предыдущая';
@@ -104,8 +125,41 @@ function updatePagination() {
   }
 }
 
+showMoreButton.addEventListener('click', () => {
+  if (buttonText.textContent === 'Свернуть') {
+    
+    currentPage = 1; 
+    const startSlide = 0;
+    const endSlide = articlesPerPage;
+
+    slides1.forEach((slide, index) => {
+      slide.style.display = index < endSlide ? 'block' : 'none';
+    });
+
+    buttonText.textContent = 'Показать ещё 6';
+  } else {
+    
+    currentPage++;
+    const startSlide = (currentPage - 1) * articlesPerPage;
+    const endSlide = startSlide + articlesPerPage;
+
+    slides1.forEach((slide, index) => {
+      if (index >= startSlide && index < endSlide) {
+        slide.style.display = 'block'; 
+      }
+    });
+
+    
+    if (currentPage * articlesPerPage >= totalSlides1) {
+      buttonText.textContent = 'Свернуть';
+    } else {
+      buttonText.textContent = 'Показать ещё 6';
+    }
+  }
+});
+
+
 function initSlider1() {
- 
   const classSequence = [
     'article-main',
     'article-double',
@@ -126,7 +180,7 @@ function initSlider1() {
     item.style.display = ''; 
 
     if (Array.isArray(newClass)) {
-      item.classList.add(...newClass);
+      item.classList.add(...newClass); 
     } else {
       item.classList.add(newClass);
     }
@@ -136,4 +190,11 @@ function initSlider1() {
   updatePagination(); 
 }
 
-initSlider1();
+
+window.addEventListener('resize', () => {
+  updateTotalPages();
+  updateSliderPosition1();
+  updatePagination();
+});
+
+initSlider1(); 
