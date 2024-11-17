@@ -52,7 +52,13 @@
 
                     @include mobile {
                         height: 350px;
-
+                        .text {
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4;
+                        }
+                        .title {
+                            -webkit-line-clamp: 4;
+                        }
                     }
                 }
 
@@ -73,7 +79,12 @@
                     @include mobile {
                         height: 350px;
 
+                        
                         .text {
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4;
+                        }
+                        .title {
                             -webkit-line-clamp: 4;
                         }
                     }
@@ -129,6 +140,10 @@
                             -webkit-line-clamp: 4;
                             color: var(--color-white);
                            
+                        }
+                        
+                        .title {
+                            -webkit-line-clamp: 4;
                         }
                     }
                 }
@@ -193,13 +208,43 @@
                             display: -webkit-box;
                             -webkit-line-clamp: 4;
                         }
+                        .title {
+                            -webkit-line-clamp: 4;
+                        }
                     }
+                }
+                .last-first {
+                    grid-column: 3 span;
+                    grid-row: auto; 
+                    height: auto;
+                    .text {
+                        -webkit-line-clamp: 4;
+                    }
+                }
+                .article-double.last-first {
+                    height: 280px;
                 }
 
                 @include mobile {
                     display: flex;
                     flex-direction: column;
                     flex: 1 1 350px;
+                }
+                
+                .article-accent, 
+                .article-double,
+                .article-main,
+                .article-standart {
+                @include mobile-s {
+                    .text {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        padding: 0;
+                    }
+                    .title {
+                        -webkit-line-clamp: 4;
+                    }
+                }
                 }
             }
         }

@@ -318,6 +318,16 @@ svg * {
   .article-container {
     margin-inline: 20px;
   }
+  .article-container .articles__item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .article-container .date {
+    position: relative;
+    margin-top: auto;
+    padding: 0 !important;
+  }
 }
 
 .subscribe-container {
@@ -792,6 +802,13 @@ p, .date {
   .content__container .articles__list .article-main {
     height: 350px;
   }
+  .content__container .articles__list .article-main .text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+  }
+  .content__container .articles__list .article-main .title {
+    -webkit-line-clamp: 4;
+  }
 }
 .content__container .articles__list .article-double {
   grid-column: 2 span;
@@ -810,6 +827,10 @@ p, .date {
     height: 350px;
   }
   .content__container .articles__list .article-double .text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+  }
+  .content__container .articles__list .article-double .title {
     -webkit-line-clamp: 4;
   }
 }
@@ -853,6 +874,9 @@ p, .date {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     color: var(--color-white);
+  }
+  .content__container .articles__list .article-accent .title {
+    -webkit-line-clamp: 4;
   }
 }
 .content__container .articles__list .article-accent:hover {
@@ -906,12 +930,42 @@ p, .date {
     display: -webkit-box;
     -webkit-line-clamp: 4;
   }
+  .content__container .articles__list .article-standart .title {
+    -webkit-line-clamp: 4;
+  }
+}
+.content__container .articles__list .last-first {
+  grid-column: 3 span;
+  grid-row: auto;
+  height: auto;
+}
+.content__container .articles__list .last-first .text {
+  -webkit-line-clamp: 4;
+}
+.content__container .articles__list .article-double.last-first {
+  height: 280px;
 }
 @media (max-width: 767px) {
   .content__container .articles__list {
     display: flex;
     flex-direction: column;
     flex: 1 1 350px;
+  }
+}
+@media (max-width: 480px) {
+  .content__container .articles__list .article-accent .text,
+  .content__container .articles__list .article-double .text,
+  .content__container .articles__list .article-main .text,
+  .content__container .articles__list .article-standart .text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    padding: 0;
+  }
+  .content__container .articles__list .article-accent .title,
+  .content__container .articles__list .article-double .title,
+  .content__container .articles__list .article-main .title,
+  .content__container .articles__list .article-standart .title {
+    -webkit-line-clamp: 4;
   }
 }
 
