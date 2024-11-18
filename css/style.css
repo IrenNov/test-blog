@@ -314,10 +314,7 @@ svg * {
 .article-container:focus {
   outline: var(--border-focus);
 }
-@media (max-width: 480px) {
-  .article-container {
-    margin-inline: 20px;
-  }
+@media (max-width: 767px) {
   .article-container .articles__item {
     display: flex;
     flex-direction: column;
@@ -327,6 +324,11 @@ svg * {
     position: relative;
     margin-top: auto;
     padding: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .article-container {
+    margin-inline: 20px;
   }
 }
 

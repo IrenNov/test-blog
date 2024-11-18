@@ -86,21 +86,23 @@
    &:focus {
      outline: var(--border-focus);
    }
-
-   @include mobile-s {
-     margin-inline: 20px;
-     .articles__item {
+   @include mobile {
+    
+    .articles__item {
       display: flex;
       flex-direction: column;
       height: 100%;
-  }
-       .date {
-         position: relative;
-         margin-top: auto;
-         padding: 0 !important;
-       }
-    
+    }
 
+    .date {
+      position: relative;
+      margin-top: auto;
+      padding: 0 !important;
+    }
+
+   }
+   @include mobile-s {
+     margin-inline: 20px;
    }
  }
 
