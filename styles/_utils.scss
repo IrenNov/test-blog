@@ -51,7 +51,7 @@
    background-color: rgba(var(--color-accent-rgb), 0.05);
    border-radius: var(--border-radius-sml);
 
-   &:hover {
+   @include hover {
      background-color: rgba(var(--color-accent-rgb), 0.15);
    }
 
@@ -77,7 +77,7 @@
 
    }
 
-   &:hover {
+   @include hover {
      box-shadow: var(--shadow-hover);
    }
  }

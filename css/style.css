@@ -283,8 +283,15 @@ svg * {
   background-color: rgba(var(--color-accent-rgb), 0.05);
   border-radius: var(--border-radius-sml);
 }
-.category:hover {
-  background-color: rgba(var(--color-accent-rgb), 0.15);
+@media (hover: hover) {
+  .category:hover {
+    background-color: rgba(var(--color-accent-rgb), 0.15);
+  }
+}
+@media (hover: none) {
+  .category:active {
+    background-color: rgba(var(--color-accent-rgb), 0.15);
+  }
 }
 
 .date {
@@ -306,9 +313,17 @@ svg * {
   right: 0;
   padding: var(--content-gap);
 }
-.article-container:hover,
-.subscribe-container:hover {
-  box-shadow: var(--shadow-hover);
+@media (hover: hover) {
+  .article-container:hover,
+  .subscribe-container:hover {
+    box-shadow: var(--shadow-hover);
+  }
+}
+@media (hover: none) {
+  .article-container:active,
+  .subscribe-container:active {
+    box-shadow: var(--shadow-hover);
+  }
 }
 
 .article-container:focus {
@@ -636,8 +651,15 @@ p, .date {
   display: flex;
   gap: min(2.78vw, 40px);
 }
-.header .nav__item:hover {
-  color: var(--color-accent);
+@media (hover: hover) {
+  .header .nav__item:hover {
+    color: var(--color-accent);
+  }
+}
+@media (hover: none) {
+  .header .nav__item:active {
+    color: var(--color-accent);
+  }
 }
 @media (max-width: 480px) {
   .header .nav {
@@ -675,11 +697,21 @@ p, .date {
 .header .phone svg {
   margin-right: 0.25em;
 }
-.header .phone:hover {
-  transform: scale(1.1);
+@media (hover: hover) {
+  .header .phone:hover {
+    transform: scale(1.1);
+  }
+  .header .phone:hover svg {
+    animation: phone 0.2s ease infinite;
+  }
 }
-.header .phone:hover svg {
-  animation: phone 0.2s ease infinite;
+@media (hover: none) {
+  .header .phone:active {
+    transform: scale(1.1);
+  }
+  .header .phone:active svg {
+    animation: phone 0.2s ease infinite;
+  }
 }
 @media (max-width: 480px) {
   .header .phone {
@@ -1121,8 +1153,15 @@ p, .date {
   margin-top: 36px;
   margin-bottom: 64px;
 }
-.footer .nav__item:hover {
-  color: var(--color-accent);
+@media (hover: hover) {
+  .footer .nav__item:hover {
+    color: var(--color-accent);
+  }
+}
+@media (hover: none) {
+  .footer .nav__item:active {
+    color: var(--color-accent);
+  }
 }
 .footer small {
   text-align: center;
